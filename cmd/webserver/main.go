@@ -1,7 +1,7 @@
 package main
 
 import (
-	controller "WebServer/controllers"
+	_ "/WebServer/cmd/webserver/controllers"
 	"fmt"
 	"log"
 	"net/http"
