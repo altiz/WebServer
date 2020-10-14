@@ -1,19 +1,30 @@
 package main
 
 import (
-	controller "WebServer/cmd/webserver/controllers"
-	"fmt"
-	"net/http"
+	routes "WebServer/cmd/webserver/routes"
 
+	gin "github.com/gin-gonic/gin"
 	logs "github.com/sirupsen/logrus"
 )
 
-func main() {
+var router *gin.Engine
 
-	fmt.Printf("hello, world\n")
-	http.HandleFunc("/", controller.Sayhello) // Устанавливаем роутер
-	err := http.ListenAndServe(":8080", nil)  // устанавливаем порт веб-сервера
-	if err != nil {
-		logs.Fatal("ListenAndServe: ", err)
-	}
+func main() {
+	logs.SetFormatter(&logs.JSONFormatter{})
+
+	logs.WithFields(logs.Fields{
+		"proc": "main",
+	}).Info("service start")
+
+	router := gin.Default()
+
+	router.LoadHTMLGlob("templates/*")
+
+	logs.WithFields(logs.Fields{
+		"proc": "main",
+	}).Info("ruter start")
+	routes.InitializeRoutes(router)
+
+	router.Run()
+
 }
