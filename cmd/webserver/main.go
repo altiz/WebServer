@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	log "github.com/sirupsen/logrus"
 
-	_ "github.com/google/glog"
-)
+	
 
 func main() {
 
