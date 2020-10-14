@@ -1,10 +1,12 @@
 package main
 
 import (
-	_ "/WebServer/cmd/webserver/controllers"
+	controller "WebServer/cmd/webserver/controllers"
 	"fmt"
 	"log"
 	"net/http"
+
+	_ "github.com/google/glog"
 )
 
 func main() {
