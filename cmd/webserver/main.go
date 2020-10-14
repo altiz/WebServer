@@ -3,11 +3,10 @@ package main
 import (
 	controller "WebServer/cmd/webserver/controllers"
 	"fmt"
-	"log"
 	"net/http"
-	log "github.com/sirupsen/logrus"
 
-	
+	logs "github.com/sirupsen/logrus"
+)
 
 func main() {
 
@@ -15,6 +14,6 @@ func main() {
 	http.HandleFunc("/", controller.Sayhello) // Устанавливаем роутер
 	err := http.ListenAndServe(":8080", nil)  // устанавливаем порт веб-сервера
 	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+		logs.Fatal("ListenAndServe: ", err)
 	}
 }

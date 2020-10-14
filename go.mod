@@ -1,4 +1,4 @@
-module mod
+module WebServer
 
 go 1.15
 
