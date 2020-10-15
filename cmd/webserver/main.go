@@ -18,7 +18,7 @@ func setupRouter() *gin.Engine {
 
 	router := gin.Default()
 
-	router.LoadHTMLGlob("templates/*")
+	//router.LoadHTMLGlob("templates/*")
 
 	logs.WithFields(logs.Fields{
 		"proc": "main",
