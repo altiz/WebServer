@@ -9,7 +9,7 @@ import (
 
 var router *gin.Engine
 
-func main() {
+func setupRouter() *gin.Engine {
 	logs.SetFormatter(&logs.JSONFormatter{})
 
 	logs.WithFields(logs.Fields{
@@ -24,6 +24,11 @@ func main() {
 		"proc": "main",
 	}).Info("ruter start")
 	routes.InitializeRoutes(router)
+	return router
+}
+
+func main() {
+	router := setupRouter()
 	router.Run()
 
 }
