@@ -24,7 +24,6 @@ func main() {
 		"proc": "main",
 	}).Info("ruter start")
 	routes.InitializeRoutes(router)
-
 	router.Run()
 
 }

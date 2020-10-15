@@ -18,7 +18,24 @@ func SayGo(c *gin.Context) {
 	})
 
 }
+func testJSON(c *gin.Context) {
+	type data struct {
+		User string `json:"user"`
+	}
+
+	var json data
+	if err := c.ShouldBindJSON(&json); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"hello": json.User,
+	})
+
+}
+
 func InitializeRoutes(router *gin.Engine) {
-	router.GET("/", Sayhello)
-	router.GET("/go", Sayhello)
+	version1 := router.Group("/v1")
+
+	version1.POST("/test", testJSON)
 }
