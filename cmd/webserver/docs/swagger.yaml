@@ -1,0 +1,52 @@
+basePath: /api/v1
+definitions:
+  models.Data_req:
+    properties:
+      user:
+        type: string
+    type: object
+  models.Data_resp:
+    properties:
+      status:
+        type: integer
+    type: object
+host: localhost:5000
+info:
+  contact:
+    email: servicedesk@tattelecom.ru
+    name: API Support
+    url: http://servicedesk.tattelecom.ttc
+  description: wbfywefqybfeyuf
+  title: Swagger IRBiS API.
+  version: "1.0"
+paths:
+  /:
+    get:
+      produces:
+      - text/html
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: body
+      summary: Retrieves user based on given ID
+  /test/:
+    post:
+      consumes:
+      - application/json
+      description: получить строку по идентификатору
+      parameters:
+      - description: name search by q
+        in: body
+        name: q
+        schema:
+          $ref: '#/definitions/models.Data_req'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Data_resp'
+      summary: Retrieves user based on given ID
+swagger: "2.0"

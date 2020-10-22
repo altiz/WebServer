@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "wbfywefqybfeyuf",
+        "title": "Swagger IRBiS API.",
+        "contact": {
+            "name": "API Support",
+            "url": "http://servicedesk.tattelecom.ttc",
+            "email": "servicedesk@tattelecom.ru"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:5000",
+    "basePath": "/api/v1",
+    "paths": {
+        "/": {
+            "get": {
+                "produces": [
+                    "text/html"
+                ],
+                "summary": "Retrieves user based on given ID",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "body"
+                        }
+                    }
+                }
+            }
+        },
+        "/test/": {
+            "post": {
+                "description": "получить строку по идентификатору",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves user based on given ID",
+                "parameters": [
+                    {
+                        "description": "name search by q",
+                        "name": "q",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.Data_req"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Data_resp"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Data_req": {
+            "type": "object",
+            "properties": {
+                "user": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Data_resp": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
