@@ -10,6 +10,15 @@ definitions:
       status:
         type: integer
     type: object
+  models.Version:
+    properties:
+      buildTime:
+        type: string
+      commit:
+        type: string
+      release:
+        type: string
+    type: object
 host: localhost:5000
 info:
   contact:
@@ -38,7 +47,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/models.Data_resp'
+            $ref: '#/definitions/models.Version'
       summary: Retrieves user based on given ID
   /test/:
     post:

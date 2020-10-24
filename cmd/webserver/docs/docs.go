@@ -54,7 +54,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/models.Data_resp"
+                            "$ref": "#/definitions/models.Version"
                         }
                     }
                 }
@@ -105,6 +105,20 @@ var doc = `{
             "properties": {
                 "status": {
                     "type": "integer"
+                }
+            }
+        },
+        "models.Version": {
+            "type": "object",
+            "properties": {
+                "buildTime": {
+                    "type": "string"
+                },
+                "commit": {
+                    "type": "string"
+                },
+                "release": {
+                    "type": "string"
                 }
             }
         }

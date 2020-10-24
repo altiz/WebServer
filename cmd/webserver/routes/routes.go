@@ -19,5 +19,5 @@ func InitializeRoutes(router *gin.Engine) {
 
 	version1.POST("/test", handlers.TestJSON)
 	version1.GET("/", handlers.IndexPage)
-	version1.GET("/home", handlers.HomeHandlers)
+	version1.POST("/home", handlers.HomeHandlers)
 }
