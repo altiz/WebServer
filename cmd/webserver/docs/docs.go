@@ -44,6 +44,22 @@ var doc = `{
                 }
             }
         },
+        "/home/": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves user based on given ID",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Data_resp"
+                        }
+                    }
+                }
+            }
+        },
         "/test/": {
             "post": {
                 "description": "получить строку по идентификатору",

@@ -30,6 +30,16 @@ paths:
           schema:
             type: body
       summary: Retrieves user based on given ID
+  /home/:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Data_resp'
+      summary: Retrieves user based on given ID
   /test/:
     post:
       consumes:
