@@ -10,7 +10,7 @@ import (
 )
 
 // indexPage godoc
-// @Summary Retrieves user based on given ID
+// @Summary Текущая версия API
 // @Produce html
 // @Success 200 {body} ok
 // @Router / [get]
@@ -25,13 +25,13 @@ func IndexPage(c *gin.Context) {
 // @Accept  json
 // @Produce json
 // Param [param_name] [param_type] [data_type] [required/mandatory] [description]
-// @Param q body models.Data_req false "name search by q"
-// @Success 200 {object} models.Data_resp
+// @Param q body models.TData_req false "name search by q"
+// @Success 200 {object} models.TData_resp
 // @Router /test/ [post]
 func TestJSON(c *gin.Context) {
 
-	var json models.Data_req
-	var resp models.Data_resp
+	var json models.TData_req
+	var resp models.TData_resp
 	if err := c.ShouldBindJSON(&json); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return

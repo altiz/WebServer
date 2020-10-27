@@ -11,12 +11,12 @@ import (
 )
 
 // HomeHandlers godoc
-// @Summary Retrieves user based on given ID
+// @Summary Текущая версия API
 // @Produce json
-// @Success 200 {object} models.Version
+// @Success 200 {object} models.TVersion
 // @Router /home/ [post]
 func HomeHandlers(c *gin.Context) {
-	var vers models.Version
+	var vers models.TVersion
 	vers.BuildTime = version.BuildTime
 	vers.Commit = version.Commit
 	vers.Release = version.Release

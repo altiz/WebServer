@@ -39,9 +39,8 @@ func setupRouter() *gin.Engine {
 // @contact.email servicedesk@tattelecom.ru
 
 // @host localhost:5000
-// @BasePath /api/v1
+// @BasePath /billing/api/v1
 func main() {
 	router := setupRouter()
 	router.Run(":5000")
-
 }
