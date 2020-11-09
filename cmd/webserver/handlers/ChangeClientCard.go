@@ -5,6 +5,8 @@ import (
 	"WebServer/cmd/webserver/models"
 	"net/http"
 
+	logs "github.com/sirupsen/logrus"
+
 	"github.com/gin-gonic/gin"
 	// swagger embed files
 )
@@ -22,22 +24,16 @@ func ChangeClientCard(c *gin.Context) {
 
 	var json models.TDelo
 	var resp models.TData_resp
+	logs.SetFormatter(&logs.JSONFormatter{})
+
 	if err := c.ShouldBindJSON(&json); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
 	}
-	/*	if json.User == "test" {
-			logs.WithFields(logs.Fields{
-				"Status": 0,
-			}).Info("Ok")
-			resp.Status = 0
-			c.JSON(http.StatusOK, resp)
-		} else {
-			logs.WithFields(logs.Fields{
-				"User": json.User,
-			}).Info("Ok")
-			resp.Status = 0
+	logs.WithFields(logs.Fields{
+		"Client":      json.Client,
+		"Decisions":   json.Decisions,
+		"ServiceName": json.ServiceName,
+	}).Info("Starting the service...")
 
-		}*/
 	c.JSON(http.StatusOK, resp)
 }

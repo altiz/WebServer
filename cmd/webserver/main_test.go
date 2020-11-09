@@ -27,7 +27,7 @@ func TestMain(t *testing.T) {
 	Convey("Users endpoints should respond correctly", t, func() {
 		Convey("Test Index", func() {
 			// it's safe to ignore error here, because we're manually entering URL
-			req, _ := http.NewRequest("GET", "http://localhost:5000/api/v1/", nil)
+			req, _ := http.NewRequest("GET", "http://localhost:5000/billing/api/v1/", nil)
 			w := httptest.NewRecorder()
 			router.ServeHTTP(w, req)
 
@@ -38,14 +38,14 @@ func TestMain(t *testing.T) {
 
 		Convey("test home", func() {
 			//send message
-			req, err := http.NewRequest("POST", "http://localhost:5000/api/v1/home", nil)
+			req, err := http.NewRequest("POST", "http://localhost:5000/billing/api/v1/home", nil)
 			So(err, ShouldBeNil)
 			w := httptest.NewRecorder()
 			router.ServeHTTP(w, req)
 			So(w.Code, ShouldEqual, http.StatusOK)
 			//resp
 			body := w.Body.Bytes()
-			var obj *models.Version
+			var obj *models.TVersion
 			if err := json.Unmarshal(body, &obj); err != nil {
 				panic(err)
 			}
@@ -63,7 +63,7 @@ func TestMain(t *testing.T) {
 			dat, err := json.Marshal(user)
 			So(err, ShouldBeNil)
 			buf := bytes.NewBuffer(dat)
-			req, err := http.NewRequest("POST", "http://localhost:5000/api/v1/test", buf)
+			req, err := http.NewRequest("POST", "http://localhost:5000/billing/api/v1/test", buf)
 			So(err, ShouldBeNil)
 			w := httptest.NewRecorder()
 			router.ServeHTTP(w, req)
