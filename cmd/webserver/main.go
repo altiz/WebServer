@@ -38,7 +38,7 @@ func setupRouter() *gin.Engine {
 // @contact.url http://servicedesk.tattelecom.ttc
 // @contact.email servicedesk@tattelecom.ru
 
-// @host localhost:5000
+// @host 192.168.114.121:5000
 // @BasePath /billing/api/v1
 func main() {
 	router := setupRouter()
